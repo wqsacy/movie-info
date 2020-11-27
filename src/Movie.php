@@ -132,7 +132,7 @@
 
 
 		private function response ( $data ) {
-			if ( $this->returnsFormat == 'json' ) {
+			if ( $this->returnsFormat == 'json' && is_array($data)) {
 				return \GuzzleHttp\json_encode( $data );
 			}
 
