@@ -22,7 +22,7 @@
 
 ### Demo
 
-you can do it as simple as:
+You can do it as simple as:
 
 ```php
     $config = [
