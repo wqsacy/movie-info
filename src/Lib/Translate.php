@@ -11,28 +11,30 @@
 	 */
 	class Translate
 	{
-		public static function get($str){
+		public static function get ( $str ) {
 
-			if(is_array($str)){
-				$str = implode('^^',$str);
+			if ( is_array( $str ) ) {
+				$str = implode( '^^' , $str );
 
 				$isNeed = 1;
-			}else{
+			} else {
 				$isNeed = 2;
 			}
 
 			//尝试使用谷歌翻译
-			try{
-				$tr = new GoogleTranslate('zh', null);
+			try {
+				$tr = new GoogleTranslate( 'zh' , null );
 
-				$result = $tr->setUrl('http://translate.google.cn/translate_a/single')->translate($str);
-			}catch (\Exception $e){
+				$result = $tr->setUrl( 'http://translate.google.cn/translate_a/single' )
+				             ->translate( $str );
+			} catch ( \Exception $e ) {
 				$result = '';
 			}
 
 
-			if($isNeed==1)
-				$result = explode('^^',$result);
+			if ( $isNeed == 1 ) {
+				$result = explode( '^^' , $result );
+			}
 
 			return $result;
 		}

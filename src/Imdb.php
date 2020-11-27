@@ -23,7 +23,7 @@
 				$imdbId = 'tt' . $imdbId;
 			}
 
-			$this->html = self::getHtml("https://www.imdb.com/title/{$imdbId}/");
+			$this->html = self::getHtml( "https://www.imdb.com/title/{$imdbId}/" );
 
 			$this->imdbId = $imdbId;
 
@@ -85,7 +85,7 @@
 
 			$ext = '.' . end( $ext );
 
-			if(strpos( $src , '@' ) !== false){
+			if ( strpos( $src , '@' ) !== false ) {
 				$url = explode( '@' , $src );
 
 				$base = '';
@@ -97,16 +97,16 @@
 						}
 					}
 				}
-			}else{
+			} else {
 				//如果没有@符号，则去除切图参数
 
-				$url = trim(str_replace($ext,'',$src));
+				$url = trim( str_replace( $ext , '' , $src ) );
 
 				$tmp = explode( '.' , $url );
 
 				$del = '.' . end( $tmp );
 
-				$base = trim(str_replace($del,'',$url));
+				$base = trim( str_replace( $del , '' , $url ) );
 
 			}
 
@@ -162,8 +162,8 @@
 			curl_setopt( $ch , CURLOPT_RETURNTRANSFER , true );
 
 			//请求头
-			curl_setopt($ch , CURLOPT_ENCODING , 'gzip,deflate'); //gzip解压
-			curl_setopt($ch , CURLOPT_USERAGENT , "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36");
+			curl_setopt( $ch , CURLOPT_ENCODING , 'gzip,deflate' ); //gzip解压
+			curl_setopt( $ch , CURLOPT_USERAGENT , "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" );
 
 			$result = curl_exec( $ch );
 			curl_close( $ch );

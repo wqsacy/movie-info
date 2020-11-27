@@ -17,7 +17,7 @@
 	class Base
 	{
 
-		private $channel,$keyword;
+		private $channel , $keyword;
 
 		private $dbId , $dbRating;
 
@@ -27,7 +27,7 @@
 
 		private $dbBaseUrl;
 
-		public function __construct ($keyword,$config) {
+		public function __construct ( $keyword , $config ) {
 
 			$this->keyword = $keyword;
 
@@ -59,7 +59,7 @@
 		public function baseInfo () {
 
 			//如果还是没有获取到豆瓣ID，则再次尝试
-			if(!$this->dbId && $this->channel == 2){
+			if ( !$this->dbId && $this->channel == 2 ) {
 
 				$this->dbId = self::getDbIdByBaidu( $this->keyword );
 
@@ -69,8 +69,9 @@
 
 			}
 
-			if(!$this->dbId)
+			if ( !$this->dbId ) {
 				return [];
+			}
 
 			$baseInfo = Request::get( "{$this->dbBaseUrl}/movie/{$this->dbId}" , [
 				'apiKey' => $this->dbApiKey
@@ -81,23 +82,23 @@
 			}
 
 			//判断如果豆瓣没有翻译或者没有对应的简介，则从imdb获取
-			$isEnglish = preg_match("/^[a-zA-Z\s]+$/",$baseInfo['title']);
+			$isEnglish = preg_match( "/^[a-zA-Z\s]+$/" , $baseInfo['title'] );
 
-			$isNotNull = strlen(trim($baseInfo['intro']));
+			$isNotNull = strlen( trim( $baseInfo['intro'] ) );
 
-			if(!$baseInfo['title'] || $isEnglish || !$isNotNull){
+			if ( !$baseInfo['title'] || $isEnglish || !$isNotNull ) {
 
-				if(!$this->imdbId && $this->channel == 2){
+				if ( !$this->imdbId && $this->channel == 2 ) {
 					$this->imdbId = $this->keyword;
 				}
 
-				$imdb = new Imdb($this->imdbId);
+				$imdb = new Imdb( $this->imdbId );
 
 				$baseInfo['original_title'] = $baseInfo['title'];
 
-				$baseInfo['title'] = Translate::get($imdb->title());
+				$baseInfo['title'] = Translate::get( $imdb->title() );
 
-				$baseInfo['intro'] = Translate::get($imdb->storyline());
+				$baseInfo['intro'] = Translate::get( $imdb->storyline() );
 
 			}
 

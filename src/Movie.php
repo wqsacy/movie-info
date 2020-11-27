@@ -29,7 +29,7 @@
 
 			$this->channel = $config['channel'];
 
-			$this->returnsFormat = isset($config['returnsFormat'])?$config['returnsFormat']:'array';
+			$this->returnsFormat = isset( $config['returnsFormat'] ) ? $config['returnsFormat'] : 'array';
 
 			if ( !isset( $config['channel'] ) || !$config['channel'] ) {
 				throw new InvalidArgumentException( 'Invalid Parameter config:channel: ' . $config );
@@ -62,9 +62,9 @@
 		}
 
 		/**
+		 * @return array|string
 		 * @author     :  Wangqs  2020/11/28
 		 * @description:  格式化信息
-		 * @return array|string
 		 */
 		public function all () {
 			return $this->response( $this->baseInfo );
@@ -132,7 +132,7 @@
 
 
 		private function response ( $data ) {
-			if ( $this->returnsFormat == 'json' && is_array($data)) {
+			if ( $this->returnsFormat == 'json' && is_array( $data ) ) {
 				return \GuzzleHttp\json_encode( $data );
 			}
 
@@ -145,8 +145,9 @@
 		 */
 		private static function format ( $data ) {
 
-			if(!is_array($data) || !count($data))
+			if ( !is_array( $data ) || !count( $data ) ) {
 				return [];
+			}
 
 			$actors = [];
 
