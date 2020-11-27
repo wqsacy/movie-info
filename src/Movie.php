@@ -19,7 +19,7 @@
 
 		protected $baseInfo , $originalInfo;
 
-		protected $config,$returnsFormat;
+		protected $config , $returnsFormat;
 
 		public function __construct ( $keyword , $config = [ 'channel' => 1 , 'returnsFormat' => 'array' ] ) {
 
@@ -63,77 +63,78 @@
 		 * @description:  原始信息
 		 */
 		public function original () {
-			return $this->originalInfo;
+			return $this->response( $this->originalInfo );
 		}
 
 		public function all () {
-			return $this->baseInfo;
+			return $this->response( $this->baseInfo );
 		}
 
 		public function title ( $detail = false ) {
 			if ( !$detail ) {
-				return $this->baseInfo['title'];
+				return $this->response( $this->baseInfo['title'] );
 			}
 
-			return [
+			return $this->response( [
 				'title'               => $this->baseInfo['title'] ,
 				'title_card_subtitle' => $this->baseInfo['title_card_subtitle'] ,
 				'original_title'      => $this->baseInfo['original_title'] ,
 				'aka'                 => $this->baseInfo['aka'] ,
-			];
+			] );
 		}
 
 		public function rating () {
-			return [
+			return $this->response( [
 				'db_rating'   => $this->baseInfo['db_rating'] ,
 				'imdb_rating' => $this->baseInfo['imdb_rating'] ,
-			];
+			] );
 		}
 
 		public function year () {
-			return $this->baseInfo['year'];
+			return $this->response( $this->baseInfo['year'] );
 		}
 
 		public function photo ( $detail = false ) {
 			if ( !$detail ) {
-				return $this->originalInfo['cover_url'];
+				return $this->response( $this->originalInfo['cover_url'] );
 			}
 
-			return $this->baseInfo['pic'];
+			return $this->response( $this->baseInfo['pic'] );
 		}
 
 		public function intro () {
-			return $this->baseInfo['intro'];
+			return $this->response( $this->baseInfo['intro'] );
 		}
 
 		public function genres () {
-			return $this->baseInfo['genres'];
+			return $this->response( $this->baseInfo['genres'] );
 		}
 
 		public function actors () {
-			return $this->baseInfo['actors'];
+			return $this->response( $this->baseInfo['actors'] );
 		}
 
 		public function directors () {
-			return $this->baseInfo['directors'];
+			return $this->response( $this->baseInfo['directors'] );
 		}
 
 		public function tags () {
-			return $this->baseInfo['tags'];
+			return $this->response( $this->baseInfo['tags'] );
 		}
 
 		public function runtime () {
-			return $this->baseInfo['runtime'];
+			return $this->response( $this->baseInfo['runtime'] );
 		}
 
 		public function countries () {
-			return $this->baseInfo['countries'];
+			return $this->response( $this->baseInfo['countries'] );
 		}
 
 
-		private function response($data){
-			if($this->returnsFormat == 'json')
-				return \GuzzleHttp\json_encode($data);
+		private function response ( $data ) {
+			if ( $this->returnsFormat == 'json' ) {
+				return \GuzzleHttp\json_encode( $data );
+			}
 
 			return $data;
 		}
