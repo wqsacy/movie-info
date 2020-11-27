@@ -145,6 +145,9 @@
 		 */
 		private static function format ( $data ) {
 
+			if(!is_array($data) || !count($data))
+				return [];
+
 			$actors = [];
 
 			if ( is_array( $data['actors'] ) ) {

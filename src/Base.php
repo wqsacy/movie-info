@@ -22,7 +22,7 @@
 	class Base
 	{
 
-		private $channel;
+		private $channel,$keyword;
 
 		private $dbId , $dbRating;
 
@@ -33,6 +33,8 @@
 		private $dbBaseUrl;
 
 		public function __construct ($keyword,$config) {
+
+			$this->keyword = $keyword;
 
 			$this->channel = $config['channel'];
 
@@ -60,6 +62,20 @@
 
 
 		public function baseInfo () {
+
+			//如果还是没有获取到豆瓣ID，则再次尝试
+			if(!$this->dbId && $this->channel == 2){
+
+				$this->dbId = self::getDbIdByBaidu( $this->keyword );
+
+				if ( !$this->dbId || !is_numeric( $this->dbId ) ) {
+					$this->dbId = self::getDbIdByApi( $this->keyword );
+				}
+
+			}
+
+			if(!$this->dbId)
+				return [];
 
 			$baseInfo = Request::get( "{$this->dbBaseUrl}/movie/{$this->dbId}" , [
 				'apiKey' => $this->dbApiKey
