@@ -1,13 +1,13 @@
 # Movie Info 
 
-:palm_tree: Get movie information from Douban.
+:movie_camera: Get movie information from Douban.
 
 ## Warning
 
-:construction:  Get the basic information from the current project. This project is only used for learning and research. The corresponding API address of Douban and the corresponding apikey need to be configured for project start-up,At present, Douban has cancelled the application for key, but some reserved keys have been circulated. Please search by yourself.In addition, no matter the applet or app interface path and key are also applicable to this project, but please study the details by yourself. This project is not responsible for obtaining API path and apikey, and also refuses to provide and help. This is against the basic interests of Douban, please try to stay away from it!
+:warning:  Get the basic information from the current project. This project is only used for learning and research. The corresponding API address of Douban and the corresponding apikey need to be configured for project start-up,At present, Douban has cancelled the application for key, but some reserved keys have been circulated. Please search by yourself.In addition, no matter the applet or app interface path and key are also applicable to this project, but please study the details by yourself. This project is not responsible for obtaining API path and apikey, and also refuses to provide and help. This is against the basic interests of Douban, please try to stay away from it!
 
 
-:construction: 目前本项目部分基础信息从豆瓣获取。本项目仅供学习研究使用，项目启动需要配置对应的豆瓣API地址和对应的apikey,
+:warning: 目前本项目部分基础信息从豆瓣获取。本项目仅供学习研究使用，项目启动需要配置对应的豆瓣API地址和对应的apikey,
 目前豆瓣取消了key的申请，但是有部分保留的key被流传，请自行搜索。
 另外，无论小程序还是app的接口路径和key也都适用本项目，但是详细信息请自行研究，本项目不负责具体获取api路径和apikey，也拒绝提供信息和帮助，这是有悖于豆瓣基本利益的事情，请尽量远离！
 
