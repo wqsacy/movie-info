@@ -29,7 +29,7 @@ you can do it as simple as:
         'channel' => 1,      //Search by Douban ID (1) or IMDB ID (2)
         'baseUrl' => 'Fill in the basic path of Douban API here', //这里填入豆瓣API的基础路径
         'apiKey'  => 'Fill in apikey of Douban', //这里填入豆瓣的apikey
-        'returnsFormat'  => 'array or json', //这里设置返回数据的格式（默认是数组），填入json 如果返回为数组的化，则自动转化为json
+        'returnsFormat'  => 'json', //这里设置返回数据的格式（默认是数组 可不填），填入json 如果返回为数组的化，则自动转化为json
 	];
 
     $movie = new Wangqs\Movie\Movie('imdbId or dbId',$config);
