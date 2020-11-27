@@ -190,7 +190,7 @@
 				'pic'                 => $data['pic'] ,                //海报
 				'intro'               => $data['intro'] ,              //简介
 				'languages'           => $data['languages'] ,          //语种
-				'genres'              => $data['intro'] ,              //分类
+				'genres'              => $data['genres'] ,             //分类
 				'actors'              => $actors ,                     //主演
 				'directors'           => $directors ,                  //导演
 				'tags'                => $tags ,                       //标签
