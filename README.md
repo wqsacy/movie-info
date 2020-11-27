@@ -1,6 +1,6 @@
 # Movie Info 
 
-:movie_camera: Get movie information from Douban.
+:movie_camera: Get movie information from Internet.
 
 ## Warning
 
