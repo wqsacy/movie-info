@@ -87,6 +87,10 @@
 
 			if(!$baseInfo['title'] || $isEnglish || !$isNotNull){
 
+				if(!$this->imdbId && $this->channel == 2){
+					$this->imdbId = $this->keyword;
+				}
+
 				$imdb = new Imdb($this->imdbId);
 
 				$baseInfo['original_title'] = $baseInfo['title'];
