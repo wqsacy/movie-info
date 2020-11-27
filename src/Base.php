@@ -55,7 +55,6 @@
 			$this->imdbRating = $Normal['imdb_rating'];
 			$this->dbId = $Normal['db_id'];
 			$this->dbRating = $Normal['douban_rating'];
-
 		}
 
 
