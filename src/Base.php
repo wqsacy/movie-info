@@ -21,8 +21,6 @@
 	class Base
 	{
 
-//		private $keyword;
-
 		private $channel;
 
 		private $dbId , $dbRating;
