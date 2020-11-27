@@ -1,9 +1,4 @@
 <?php
-	/**
-	 *
-	 * Created by Wangqs
-	 * Date: 2020/11/26 11:58 下午
-	 */
 
 	namespace Wangqs\Movie;
 

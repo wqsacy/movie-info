@@ -1,9 +1,4 @@
 <?php
-	/**
-	 *
-	 * Created by Wangqs
-	 * Date: 2020/11/28 2:15 上午
-	 */
 
 	namespace Wangqs\Movie\Lib;
 
