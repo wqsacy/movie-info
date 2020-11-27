@@ -74,7 +74,110 @@ you can do it as simple as:
 ``` 
 
 ### Response Instructions
-
+```json
+{
+    "db_id":"3592854",
+    "imdb_id":"tt1392190",
+    "title":"疯狂的麦克斯4：狂暴之路",
+    "title_card_subtitle":"2015 / 澳大利亚 南非 / 动作 科幻 冒险 / 乔治·米勒 / 汤姆·哈迪 查理兹·塞隆",
+    "original_title":"Mad Max: Fury Road",
+    "aka":[
+        "末日先锋：战甲飞车(港)",
+        "疯狂麦斯：愤怒道(台)",
+        "冲锋飞车队4",
+        "迷雾追魂手4",
+        "冲锋追魂手4",
+        "疯狂麦克斯4",
+        "疯狂迈斯：怒途",
+        "Mad Max 4: Fury Road"
+    ],
+    "db_rating":"8.6",
+    "imdb_rating":"8.1",
+    "pub_date":[
+        "2015-05-14(澳大利亚)"
+    ],
+    "year":"2015",
+    "pic":{
+        "large":"https://img2.doubanio.com/view/photo/m_ratio_poster/public/p2236181653.jpg",
+        "normal":"https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2236181653.jpg"
+    },
+    "intro":"未来世界，水资源短缺引发了连绵的战争。人们相互厮杀，争夺有限的资源，地球变成了血腥十足的杀戮死战场。面容恐怖的不死乔在戈壁山谷建立了难以撼动的强大武装王国，他手下的战郎驾驶装备尖端武器的战车四下抢掠，杀伐无度，甚至将自己的孩子打造成战争机器。在最近一次行动中，不死乔的得力战将弗瑞奥萨（查理兹·塞隆 Charlize Theron 饰）带着生育者们叛逃，这令不死乔恼羞成怒，发誓要追回生育者。经历了激烈的追逐战和摧毁力极强的沙尘暴，弗瑞奥萨和作为血主的麦克斯（汤姆·哈迪 Tom Hardy 饰）被迫上路，而身后不仅有不死乔的追兵，还有汽油镇、子弹农场的重兵追逐。
+末世战争，全面爆发……",
+    "languages":[
+        "英语",
+        "俄语"
+    ],
+    "genres":"未来世界，水资源短缺引发了连绵的战争。人们相互厮杀，争夺有限的资源，地球变成了血腥十足的杀戮死战场。面容恐怖的不死乔在戈壁山谷建立了难以撼动的强大武装王国，他手下的战郎驾驶装备尖端武器的战车四下抢掠，杀伐无度，甚至将自己的孩子打造成战争机器。在最近一次行动中，不死乔的得力战将弗瑞奥萨（查理兹·塞隆 Charlize Theron 饰）带着生育者们叛逃，这令不死乔恼羞成怒，发誓要追回生育者。经历了激烈的追逐战和摧毁力极强的沙尘暴，弗瑞奥萨和作为血主的麦克斯（汤姆·哈迪 Tom Hardy 饰）被迫上路，而身后不仅有不死乔的追兵，还有汽油镇、子弹农场的重兵追逐。
+末世战争，全面爆发……",
+    "actors":[
+        {
+            "db_actor_id":"1049489",
+            "name":"汤姆·哈迪",
+            "roles":[
+                "演员",
+                "制片人",
+                "编剧"
+            ],
+            "abstract":"　　汤姆·哈迪给人留下的最初印象是《兄弟连》和《黑鹰坠落》中英俊而带有几分邪气的美国大兵，但他是...",
+            "cover_url":"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p5110.jpg"
+        },
+        {
+            "db_actor_id":"1018991",
+            "name":"查理兹·塞隆",
+            "roles":[
+                "演员",
+                "制片人",
+                "配音",
+                "导演"
+            ],
+            "abstract":"查理兹·塞隆生于南非，外型极为靓丽的她是混血独生女。父亲是法国人，母亲则是德国人。她6岁时即开始学...",
+            "cover_url":"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p44470.jpg"
+        },
+        {
+            "db_actor_id":"1036341",
+            "name":"尼古拉斯·霍尔特",
+            "roles":[
+                "演员",
+                "配音"
+            ],
+            "abstract":"　　 尼古拉斯·霍尔特 (Nicholas Hoult) 1989年12月7日出生于英国东南部伯克夏郡3万多人口的小镇Worki...",
+            "cover_url":"https://img9.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1371701601.6.jpg"
+        }
+    ],
+    "directors":[
+        {
+            "db_actor_id":"1056046",
+            "name":"乔治·米勒",
+            "roles":[
+                "制片人",
+                "导演",
+                "编剧",
+                "副导演",
+                "演员"
+            ],
+            "abstract":"He is a producer and writer, known for Happy Feet (2006), Mad Max 2 (1981) and Mad Max (1979).",
+            "cover_url":"https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p33507.jpg"
+        }
+    ],
+    "tags":[
+        "暴力片",
+        "动作片",
+        "公路片",
+        "科幻",
+        "美国",
+        "冒险片",
+        "澳大利亚",
+        "剧情片"
+    ],
+    "runtime":[
+        "120分钟"
+    ],
+    "countries":[
+        "澳大利亚",
+        "南非"
+    ]
+}
+```
 
 ## License
 

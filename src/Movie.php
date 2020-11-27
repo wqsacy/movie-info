@@ -19,15 +19,17 @@
 
 		protected $baseInfo , $originalInfo;
 
-		protected $config;
+		protected $config,$returnsFormat;
 
-		public function __construct ( $keyword , $config = [ 'channel' => 1 ] ) {
+		public function __construct ( $keyword , $config = [ 'channel' => 1 , 'returnsFormat' => 'array' ] ) {
 
 			$this->keyword = $keyword;
 
 			$this->config = $config;
 
 			$this->channel = $config['channel'];
+
+			$this->returnsFormat = $config['returnsFormat'];
 
 			if ( !isset( $config['channel'] ) || !$config['channel'] ) {
 				throw new InvalidArgumentException( 'Invalid Parameter config:channel: ' . $config );
@@ -39,6 +41,10 @@
 
 			if ( !isset( $config['apiKey'] ) || !$config['apiKey'] ) {
 				throw new InvalidArgumentException( 'Invalid Parameter config:apiKey: ' . $config );
+			}
+
+			if ( !isset( $config['returnsFormat'] ) || !$config['returnsFormat'] ) {
+				throw new InvalidArgumentException( 'Invalid Parameter config:returnsFormat: ' . $config );
 			}
 
 
@@ -125,11 +131,18 @@
 		}
 
 
+		private function response($data){
+			if($this->returnsFormat == 'json')
+				return \GuzzleHttp\json_encode($data);
+
+			return $data;
+		}
+
 		/**
 		 * @author     :  Wangqs  2020/11/27
 		 * @description:  数据格式化
 		 */
-		public static function format ( $data ) {
+		private static function format ( $data ) {
 
 			$actors = [];
 

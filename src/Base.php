@@ -10,7 +10,6 @@
 	use QL\Ext\Baidu;
 	use QL\QueryList;
 	use Wangqs\Movie\Lib\HttpException;
-	use Wangqs\Movie\Lib\InvalidArgumentException;
 	use Wangqs\Movie\Lib\Odin;
 	use Wangqs\Movie\Lib\Request;
 
@@ -19,42 +18,39 @@
 	 * Created by Malcolm.
 	 * Date: 2020/11/26  11:58 下午
 	 */
-	class Base
+	class Base extends Movie
 	{
 
-		protected $keyword;
+//		private $keyword;
+//
+//		private $channel;
 
-		protected $channel;
+		private $dbId , $dbRating;
 
-		protected $dbId , $dbRating;
+		private $imdbId , $imdbRating;
 
-		protected $imdbId , $imdbRating;
+		private $dbApiKey;
 
-		protected $dbApiKey;
+		private $dbBaseUrl;
 
-		protected $dbBaseUrl;
+		public function __construct () {
 
-		public function __construct ( $keyword , $channel , $config ) {
-			if ( !$keyword ) {
-				throw new InvalidArgumentException( 'Invalid Parameter keyword: ' . $keyword );
-			}
+			parent::__construct($this->keyword,$this->keyword);
 
-			$this->keyword = $keyword;
+			$this->channel = $this->config['channel'];
 
-			$this->channel = $channel;
+			$this->dbApiKey = $this->config['apiKey'];
 
-			$this->dbApiKey = $config['apiKey'];
+			$this->dbBaseUrl = $this->config['baseUrl'];
 
-			$this->dbBaseUrl = $config['baseUrl'];
-
-			if ( $channel == 2 ) {
+			if ( $this->channel == 2 ) {
 				try {
-					$this->dbId = self::byImdb( $keyword );
+					$this->dbId = self::byImdb( $this->keyword );
 				} catch ( HttpException $e ) {
 					throw new HttpException( $e->getMessage() , $e->getCode() , $e );
 				}
 			} else {
-				$this->dbId = $keyword;
+				$this->dbId = $this->keyword;
 			}
 
 			$Normal = self::getNormalByDb( $this->dbId );
@@ -67,7 +63,7 @@
 		}
 
 
-		public function baseInfo () {
+		protected function baseInfo () {
 
 			$baseInfo = Request::get( "{$this->dbBaseUrl}/movie/{$this->dbId}" , [
 				'apiKey' => $this->dbApiKey
@@ -93,7 +89,7 @@
 		 * @author     :  Wangqs  2020/11/27
 		 * @description:  从imdbID获取资料
 		 */
-		public function byImdb ( $keyword ) {
+		private function byImdb ( $keyword ) {
 
 			//先查询接口，如果可以返回则直接使用
 			$dbId = self::getDbIdByApi( $keyword );
@@ -112,7 +108,7 @@
 		}
 
 
-		public static function getDbIdByApi ( $kw ) {
+		private static function getDbIdByApi ( $kw ) {
 			$response = Request::get( 'https://api.rhilip.info/tool/movieinfo/gen' , [
 				'search' => $kw ,
 				'source' => 'douban' ,
@@ -126,7 +122,7 @@
 		}
 
 
-		public static function getDbIdByBaidu ( $kw ) {
+		private static function getDbIdByBaidu ( $kw ) {
 			$response = QueryList::getInstance()
 			                     ->use( Baidu::class , 'baidu' )
 			                     ->baidu( 1 )
@@ -142,7 +138,7 @@
 		}
 
 
-		public static function getNormalByDb ( $dbId ) {
+		private static function getNormalByDb ( $dbId ) {
 
 			$response = Request::get( 'https://movie.querydata.org/api' , [
 				'id' => $dbId
