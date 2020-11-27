@@ -1,6 +1,6 @@
 {
   "name": "wangqs/movie-info",
-  "description": "It is suitable for PHP extension to obtain the basic information of movies. Note: this extension cannot be used directly. You need to obtain the API interface of Douban and the corresponding apikey \n 适用于获取电影基础信息的PHP拓展。注意：这个拓展无法直接使用，需要你自行获取豆瓣api接口和对应的apikey",
+  "description": "适用于获取电影基础信息的PHP拓展。注意：这个拓展无法直接使用，需要你自行获取豆瓣api接口和对应的apikey",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
