@@ -87,7 +87,7 @@
 
 			if(!$baseInfo['title'] || $isEnglish || !$isNotNull){
 
-				$imdb = new Imdb($baseInfo['imdb_id']);
+				$imdb = new Imdb($this->imdbId);
 
 				$baseInfo['original_title'] = $baseInfo['title'];
 
