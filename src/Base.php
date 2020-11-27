@@ -109,6 +109,9 @@
 			$baseInfo['imdb_rating'] = $this->imdbRating;
 			$baseInfo['douban_rating'] = $this->dbRating;
 
+			if(!$this->dbId || !$this->imdbId)
+				return [];
+
 			return $baseInfo;
 		}
 
