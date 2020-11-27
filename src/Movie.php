@@ -61,6 +61,11 @@
 			return $this->response( $this->originalInfo );
 		}
 
+		/**
+		 * @author     :  Wangqs  2020/11/28
+		 * @description:  格式化信息
+		 * @return array|string
+		 */
 		public function all () {
 			return $this->response( $this->baseInfo );
 		}
