@@ -29,7 +29,7 @@
 
 			$this->channel = $config['channel'];
 
-			$this->returnsFormat = $config['returnsFormat']?$config['returnsFormat']:'array';
+			$this->returnsFormat = isset($config['returnsFormat'])?$config['returnsFormat']:'array';
 
 			if ( !isset( $config['channel'] ) || !$config['channel'] ) {
 				throw new InvalidArgumentException( 'Invalid Parameter config:channel: ' . $config );
