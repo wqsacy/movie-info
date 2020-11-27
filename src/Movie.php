@@ -43,9 +43,6 @@
 				throw new InvalidArgumentException( 'Invalid Parameter config:apiKey: ' . $config );
 			}
 
-			if ( !isset( $config['returnsFormat'] ) || !$config['returnsFormat']  || !in_array($config['returnsFormat'],['array','json'])) {
-				throw new InvalidArgumentException( 'Invalid Parameter config:returnsFormat: ' . $config );
-			}
 
 
 			try {
