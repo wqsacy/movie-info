@@ -183,24 +183,24 @@
 
 			return [
 				'db_id'               => $data['db_id'] ,              //豆瓣ID
-				'imdb_id'             => $data['imdb_id'] ,//imdb ID
-				'title'               => $data['title'] ,//中文名称
-				'title_card_subtitle' => $data['card_subtitle'] ,//中文名称关键词
-				'original_title'      => $data['original_title'] ,//原名称 国产为空
-				'aka'                 => $data['aka'] ,  //别名
-				'db_rating'           => $data['douban_rating'] ,    //豆瓣评分
-				'imdb_rating'         => $data['imdb_rating'] ,    //IMDB评分
-				'pub_date'            => $data['pubdate'] ,//上映日期
-				'year'                => $data['year'] ,//上映年份
-				'pic'                 => $data['pic'] ,  //海报
-				'intro'               => $data['intro'] , //简介
-				'languages'           => $data['languages'] , //语种
-				'genres'              => $data['intro'] , //分类
-				'actors'              => $actors , //主演
-				'directors'           => $directors , //导演
-				'tags'                => $tags , //标签
-				'runtime'             => $data['durations'] , //时长
-				'countries'           => $data['countries'] , //国家
+				'imdb_id'             => $data['imdb_id'] ,            //imdb ID
+				'title'               => $data['title'] ,              //中文名称
+				'title_card_subtitle' => $data['card_subtitle'] ,      //中文名称关键词
+				'original_title'      => $data['original_title'] ,     //原名称 国产为空
+				'aka'                 => $data['aka'] ,                //别名
+				'db_rating'           => $data['douban_rating'] ,      //豆瓣评分
+				'imdb_rating'         => $data['imdb_rating'] ,        //IMDB评分
+				'pub_date'            => $data['pubdate'] ,            //上映日期
+				'year'                => $data['year'] ,               //上映年份
+				'pic'                 => $data['pic'] ,                //海报
+				'intro'               => $data['intro'] ,              //简介
+				'languages'           => $data['languages'] ,          //语种
+				'genres'              => $data['intro'] ,              //分类
+				'actors'              => $actors ,                     //主演
+				'directors'           => $directors ,                  //导演
+				'tags'                => $tags ,                       //标签
+				'runtime'             => $data['durations'] ,          //时长
+				'countries'           => $data['countries'] ,          //国家
 			];
 
 		}
