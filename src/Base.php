@@ -38,11 +38,7 @@
 			$this->dbBaseUrl = $config['baseUrl'];
 
 			if ( $this->channel == 2 ) {
-				try {
-					$this->dbId = self::byImdb( $keyword );
-				} catch ( HttpException $e ) {
-					throw new HttpException( $e->getMessage() , $e->getCode() , $e );
-				}
+				$this->dbId = self::byImdb( $keyword );
 			} else {
 				$this->dbId = $keyword;
 			}
@@ -78,7 +74,7 @@
 			] );
 
 			if ( !$baseInfo || !is_array( $baseInfo ) || !isset( $baseInfo['id'] ) || !$baseInfo['id'] ) {
-				throw new HttpException( 'Bad Request douban.com' , $baseInfo );
+				return [];
 			}
 
 			//判断如果豆瓣没有翻译或者没有对应的简介，则从imdb获取
@@ -92,13 +88,19 @@
 					$this->imdbId = $this->keyword;
 				}
 
+				if(!$this->imdbId)
+					return [];
+
+
 				$imdb = new Imdb( $this->imdbId );
 
 				$baseInfo['original_title'] = $baseInfo['title'];
 
-				$baseInfo['title'] = Translate::get( $imdb->title() );
+				if(!$baseInfo['title'] || $isEnglish)
+					$baseInfo['title'] = Translate::get( $imdb->title() );
 
-				$baseInfo['intro'] = Translate::get( $imdb->storyline() );
+				if(!$baseInfo['intro'])
+					$baseInfo['intro'] = Translate::get( $imdb->storyline() );
 
 			}
 
@@ -108,12 +110,10 @@
 			$baseInfo['douban_rating'] = $this->dbRating;
 
 			return $baseInfo;
-
 		}
 
 
 		/**
-		 * @throws HttpException
 		 * @author     :  Wangqs  2020/11/27
 		 * @description:  从imdbID获取资料
 		 */
@@ -127,7 +127,7 @@
 			}
 
 			if ( !$dbId ) {
-				throw new HttpException( 'Failed To Get Correctly douban_id' );
+				return '';
 			}
 
 			$this->dbId = $dbId;

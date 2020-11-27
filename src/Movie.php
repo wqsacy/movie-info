@@ -48,7 +48,8 @@
 				$this->originalInfo = $base->baseInfo();
 				$this->baseInfo = self::format( $this->originalInfo );
 			} catch ( \Exception $e ) {
-				throw new HttpException( $e->getMessage() , $e->getCode() , $e );
+				$this->originalInfo = [];
+				$this->baseInfo = self::format( $this->originalInfo );
 			}
 
 		}
