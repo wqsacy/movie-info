@@ -18,12 +18,12 @@
 	 * Created by Malcolm.
 	 * Date: 2020/11/26  11:58 下午
 	 */
-	class Base extends Movie
+	class Base
 	{
 
 //		private $keyword;
-//
-//		private $channel;
+
+		private $channel;
 
 		private $dbId , $dbRating;
 
@@ -33,24 +33,22 @@
 
 		private $dbBaseUrl;
 
-		public function __construct () {
+		public function __construct ($keyword,$config) {
 
-			parent::__construct($this->keyword,$this->keyword);
+			$this->channel = $config['channel'];
 
-			$this->channel = $this->config['channel'];
+			$this->dbApiKey = $config['apiKey'];
 
-			$this->dbApiKey = $this->config['apiKey'];
-
-			$this->dbBaseUrl = $this->config['baseUrl'];
+			$this->dbBaseUrl = $config['baseUrl'];
 
 			if ( $this->channel == 2 ) {
 				try {
-					$this->dbId = self::byImdb( $this->keyword );
+					$this->dbId = self::byImdb( $keyword );
 				} catch ( HttpException $e ) {
 					throw new HttpException( $e->getMessage() , $e->getCode() , $e );
 				}
 			} else {
-				$this->dbId = $this->keyword;
+				$this->dbId = $keyword;
 			}
 
 			$Normal = self::getNormalByDb( $this->dbId );
@@ -63,7 +61,7 @@
 		}
 
 
-		protected function baseInfo () {
+		public function baseInfo () {
 
 			$baseInfo = Request::get( "{$this->dbBaseUrl}/movie/{$this->dbId}" , [
 				'apiKey' => $this->dbApiKey

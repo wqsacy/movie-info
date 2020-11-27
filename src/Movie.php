@@ -49,7 +49,7 @@
 
 
 			try {
-				$base = new Base( $keyword , $this->channel , $config );
+				$base = new Base( $keyword , $config );
 				$this->originalInfo = $base->baseInfo();
 				$this->baseInfo = self::format( $this->originalInfo );
 			} catch ( \Exception $e ) {
