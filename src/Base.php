@@ -12,6 +12,7 @@
 	use Wangqs\Movie\Lib\HttpException;
 	use Wangqs\Movie\Lib\Odin;
 	use Wangqs\Movie\Lib\Request;
+	use Wangqs\Movie\Lib\Translate;
 
 	/**
 	 *
@@ -68,6 +69,22 @@
 				throw new HttpException( 'Bad Request douban.com' , $baseInfo );
 			}
 
+			//判断如果豆瓣没有翻译或者没有对应的简介，则从imdb获取
+			$isEnglish = preg_match("/^[a-zA-Z\s]+$/",$baseInfo['title']);
+
+			$isNotNull = strlen(trim($baseInfo['intro']));
+
+			if(!$baseInfo['title'] || $isEnglish || !$isNotNull){
+
+				$imdb = new Imdb($baseInfo['imdb_id']);
+
+				$baseInfo['original_title'] = $baseInfo['title'];
+
+				$baseInfo['title'] = Translate::get($imdb->title());
+
+				$baseInfo['intro'] = Translate::get($imdb->storyline());
+
+			}
 
 			$baseInfo['db_id'] = $this->dbId;
 			$baseInfo['imdb_id'] = $this->imdbId;
@@ -86,11 +103,11 @@
 		 */
 		private function byImdb ( $keyword ) {
 
-			//先查询接口，如果可以返回则直接使用
-			$dbId = self::getDbIdByApi( $keyword );
+			//先查询百度，如果可以返回则直接使用
+			$dbId = self::getDbIdByBaidu( $keyword );
 
 			if ( !$dbId || !is_numeric( $dbId ) ) {
-				$dbId = self::getDbIdByBaidu( $keyword );
+				$dbId = self::getDbIdByApi( $keyword );
 			}
 
 			if ( !$dbId ) {
