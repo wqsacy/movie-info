@@ -43,8 +43,6 @@
 				throw new InvalidArgumentException( 'Invalid Parameter config:apiKey: ' . $config );
 			}
 
-
-
 			try {
 				$base = new Base( $keyword , $config );
 				$this->originalInfo = $base->baseInfo();

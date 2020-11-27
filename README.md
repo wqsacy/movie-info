@@ -17,10 +17,9 @@
     $ composer require wangqs/movie-info
     ```
 
-
 ## Usage
 
-### Demo
+#### Demo
 
 You can do it as simple as:
 
